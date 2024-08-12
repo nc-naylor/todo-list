@@ -5,9 +5,9 @@ export default function TodoList(props) {
   const { tasks } = props;
   return (
     <ul className="main">
-      {tasks.map((task, todoIndex) => {
+      {tasks.map((task, taskIndex) => {
         return (
-          <TodoCard key={todoIndex}>
+          <TodoCard {...props} key={taskIndex} index={taskIndex}>
             <p>{task}</p>
           </TodoCard>
         );
