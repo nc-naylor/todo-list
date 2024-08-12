@@ -4,6 +4,7 @@ import TodoList from "./components/TodoList";
 
 function App() {
   const [tasks, setTasks] = useState([]);
+  const [taskValue, setTaskValue] = useState([""]);
 
   function handleAddTask(newTask) {
     const newTaskList = [...tasks, newTask];
@@ -17,10 +18,24 @@ function App() {
     setTasks(newTaskList);
   }
 
+  function handleEditTask(index) {
+    const valueToBeEdited = tasks[index];
+    setTaskValue(valueToBeEdited);
+    handleDeleteTask(index);
+  }
+
   return (
     <>
-      <TodoInput handleAddTasks={handleAddTask} />
-      <TodoList handleDeleteTask={handleDeleteTask} tasks={tasks} />
+      <TodoInput
+        taskValue={taskValue}
+        setTaskValue={setTaskValue}
+        handleAddTasks={handleAddTask}
+      />
+      <TodoList
+        handleEditTask={handleEditTask}
+        handleDeleteTask={handleDeleteTask}
+        tasks={tasks}
+      />
     </>
   );
 }
