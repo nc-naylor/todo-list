@@ -1,3 +1,4 @@
+/* Default light mode styles */
 * {
   font-family: 'Inter', sans-serif;
   margin: 0;
@@ -34,6 +35,7 @@ header,
   width: 100%;
   margin: 0 auto;
   gap: 14px;
+  margin-bottom: 1vh;
 }
 
 header input {
@@ -102,7 +104,81 @@ p {
   opacity: 0.7;
 }
 
+.toggle {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border: 2px solid #060621;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.5em;
+  transition: background-color 0.3s;
+}
 
+.toggle i {
+  color: #060621;
+  transition: color 0.3s;
+}
+
+.toggle:hover {
+  background-color: #060621;
+}
+
+.toggle:hover i {
+  color: #ffb113;
+}
+
+/* Dark mode styles */
+body.dark-mode #root {
+  background: #000c18;
+}
+
+/* adjust later */
+body.dark-mode header button, body.dark-mode header input {
+  background: #202124;
+  color: white;
+}
+
+body.dark-mode .taskItem {
+  background: #202124;
+}
+
+body.dark-mode .taskItem p {
+  color: white;
+}
+
+body.dark-mode .taskItem i {
+  color: white;
+}
+
+body.dark-mode input::placeholder {
+  color: rgba(255, 255, 255, 0.623);
+}
+
+
+body.dark-mode .toggle {
+  background-color: #000c18;
+  border: 2px solid white;
+}
+
+body.dark-mode .toggle i {
+  color: white;
+  transition: color 0.3s;
+}
+
+body.dark-mode .toggle:hover {
+  background-color: white;
+}
+
+body.dark-mode .toggle:hover i {
+  color: #ffb113;
+}
 
 @media (min-width: 640px) {
 
@@ -115,3 +191,4 @@ p {
     font-size: 1em;
   }
 }
+

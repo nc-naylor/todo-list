@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
+import DarkModeToggle from "./components/DarkModeToggle";
 
 function App() {
   const [tasks, setTasks] = useState([]);
   const [taskValue, setTaskValue] = useState([""]);
+  const [darkMode, setDarkMode] = useState(false);
 
   function persistData(newList) {
     localStorage.setItem("tasks", JSON.stringify({ tasks: newList }));
@@ -42,8 +44,13 @@ function App() {
     setTasks(localTasks);
   }, []);
 
+  function toggleDarkMode() {
+    setDarkMode((prevMode) => !prevMode);
+  }
+
   return (
-    <>
+    <div className={darkMode ? "dark-mode" : ""}>
+      <DarkModeToggle onToggle={toggleDarkMode} />
       <TodoInput
         taskValue={taskValue}
         setTaskValue={setTaskValue}
@@ -54,7 +61,7 @@ function App() {
         handleDeleteTask={handleDeleteTask}
         tasks={tasks}
       />
-    </>
+    </div>
   );
 }
 
