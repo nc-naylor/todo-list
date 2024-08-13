@@ -22,6 +22,7 @@ button {
   padding: 14px;
   background: #eff6ff;
   gap: 14px;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 header {
@@ -143,6 +144,7 @@ body.dark-mode #root {
 body.dark-mode header button, body.dark-mode header input {
   background: #202124;
   color: white;
+  transition: background-color 0.5s, color 0.5s ease;
 }
 
 body.dark-mode .taskItem {
